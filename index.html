@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025政大附中 校內小成節目單</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 100%;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .tabs {
+            margin-bottom: 20px;
+        }
+        
+        .tab-button {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            padding: 10px 20px;
+            margin: 0 5px;
+            cursor: pointer;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .tab-button:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .tab-button.active {
+            background-color: rgba(255, 255, 255, 0.4);
+            border-color: white;
+        }
+        
+        .image-container {
+            max-width: 100%;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+        
+        .poster-image {
+            width: 100%;
+            height: auto;
+            max-width: 800px;
+            display: block;
+            margin: 0 auto;
+        }
+        
+        .image-tab {
+            display: none;
+        }
+        
+        .image-tab.active {
+            display: block;
+        }
+        
+        h1 {
+            color: white;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .tab-button {
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>2025政大附中 校內小成節目單</h1>
+        
+        <!-- 切換按鈕 -->
+        <div class="tabs">
+            <button class="tab-button active" onclick="showImage('day1')">5/26 (Day 1)</button>
+            <button class="tab-button" onclick="showImage('day2')">5/27 (Day 2)</button>
+        </div>
+        
+        <!-- Day 1 圖片 -->
+        <div id="day1" class="image-tab active">
+            <div class="image-container">
+                <img src="file/day1.png" alt="Day 1 節目單" class="poster-image">
+            </div>
+        </div>
+        
+        <!-- Day 2 圖片 -->
+        <div id="day2" class="image-tab">
+            <div class="image-container">
+                <img src="file/day2.png" alt="Day 2 節目單" class="poster-image">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showImage(day) {
+            // 隱藏所有圖片
+            const allTabs = document.querySelectorAll('.image-tab');
+            allTabs.forEach(tab => tab.classList.remove('active'));
+            
+            // 移除所有按鈕的 active 狀態
+            const allButtons = document.querySelectorAll('.tab-button');
+            allButtons.forEach(button => button.classList.remove('active'));
+            
+            // 顯示選中的圖片
+            document.getElementById(day).classList.add('active');
+            
+            // 設置對應按鈕為 active
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
